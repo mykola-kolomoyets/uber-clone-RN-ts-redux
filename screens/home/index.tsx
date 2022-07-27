@@ -1,4 +1,6 @@
-import { SafeAreaView, View, Image } from 'react-native';
+import { SafeAreaView, View, Image, Text } from 'react-native';
+
+import { GOOGLE_API_KEY } from '@env';
 
 import { logoUri } from './home.constants';
 

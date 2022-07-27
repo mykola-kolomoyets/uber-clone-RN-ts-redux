@@ -76,5 +76,6 @@ module.exports = {
     react: {
       version: 'detect' // Detect react version
     }
-  }
+  },
+  ignorePatterns: ['babel.config.js']
 };
