@@ -1,13 +1,27 @@
-import { screens, Stack } from '../../utils/navigation/constants';
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import {
   initialScreenProps,
   initialStackNavigatorProps,
-  ScreenOptions
+  ScreenOptions,
+  StackParamsList
 } from '../../utils/navigation/stack';
 import { Screens } from '../../utils/navigation/enums/screens';
 
+import HomeScreen from '../../screens/home';
+import MapScreen from '../../screens/map';
+import EatsScreen from '../../screens/eats';
+
+export const Stack = createNativeStackNavigator<StackParamsList>();
+export const screens = {
+  [Screens.main]: HomeScreen,
+  [Screens.map]: MapScreen,
+  [Screens.eats]: EatsScreen
+};
+
 const StackNavigator = () => {
-  const screenOptions: ScreenOptions = {
+  const screenOptions: ScreenOptions<Screens> = {
     [Screens.main]: {
       ...initialScreenProps[Screens.main]
     },

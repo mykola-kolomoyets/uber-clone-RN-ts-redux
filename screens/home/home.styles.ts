@@ -15,3 +15,13 @@ export default {
   logoContainer: tw`p-5`,
   logo: [styles.logo]
 };
+
+export const googleInputStyles = StyleSheet.create({
+  container: {
+    flex: 0
+  },
+
+  textInput: {
+    fontSize: 18
+  }
+});

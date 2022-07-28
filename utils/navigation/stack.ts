@@ -5,7 +5,7 @@ import {
   NativeStackScreenProps
 } from '@react-navigation/native-stack';
 
-import { Screens } from './enums/screens';
+import { MapScreens, Screens } from './enums/screens';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 
 export type StackParamsList = {
@@ -14,7 +14,12 @@ export type StackParamsList = {
   [Screens.eats]: undefined;
 };
 
-export const initialScreenProps: ScreenOptions = {
+export type MapStackParamList = {
+  [MapScreens.navigate]: undefined;
+  [MapScreens.rideCard]: undefined;
+};
+
+export const initialScreenProps: ScreenOptions<Screens> = {
   [Screens.main]: {
     title: 'Main screen'
   },
@@ -38,10 +43,20 @@ export type ScreenProps<T extends Screens> = {
   navigation: NativeStackNavigationProp<StackParamsList, T>;
 };
 
-export type ScreenOptions = {
-  [key in Screens]:
+export type MapScreenProps<T extends MapScreens> = {
+  navigation: NativeStackNavigationProp<MapStackParamList, T>;
+};
+
+export type ScreenOptions<T extends Screens> = {
+  [key in T]:
     | NativeStackNavigationOptions
     | ((props: ScreenProps<key>) => NativeStackNavigationOptions);
+};
+
+export type MapScreenOptions<T extends MapScreens> = {
+  [key in T]:
+    | NativeStackNavigationOptions
+    | ((props: MapScreenProps<key>) => NativeStackNavigationOptions);
 };
 
 export type StackScreen<ScreenName extends Screens> = NativeStackScreenProps<
